@@ -1,0 +1,19 @@
+<script src="~/jqwidgets/jqxinput.js"></script>
+
+
+@model IEnumerable<jQWidgets.AspNet.Core.Models.SalesEmployee>
+
+@{
+    ViewData["Title"] = "ASP .NET MVC Input Example";
+}
+<script>
+    function change(event) {
+        var args = event.args;
+        document.getElementById("log").innerHTML = "Label: " + args.label + ", Value: " + args.value;;
+    }
+</script>
+<label>Enter Name:</label>
+<jqx-input on-change="change()" display-member="Name" selected-index="0" value-member="ID" theme="@ViewData["Theme"]" width="250" height="30" source="Model"></jqx-input>
+(ex: An)
+<br /><br />
+<div id="log"></div>

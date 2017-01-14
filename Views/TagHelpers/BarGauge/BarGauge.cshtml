@@ -1,0 +1,17 @@
+<script src="~/jqwidgets/jqxbargauge.js"></script>
+
+@{
+    ViewData["Title"] = "ASP .NET MVC Bar Gauge Example";
+    List<string> ranges = new List<string>()
+    {
+        "{ start-value: 0, end-value: 200, color: \"#000000\", opacity: 0.5 }",
+        "{ start-value: 200, end-value: 250, color: \"#000000\", opacity: 0.3 }",
+        "{ start-value: 250, end-value: 300, color: \"#000000\", opacity: 0.1 }"
+    };
+    List<double> barGaugeValues = new List<double>()
+    {
+        102, 115, 130, 137
+    };
+}
+<div class="example-description">ASP .NET MVC BarGauge Example</div><br />
+<jqx-bar-gauge colorScheme="scheme02" ranges="ranges" values="barGaugeValues" width="600" height="600" max="150"></jqx-bar-gauge>

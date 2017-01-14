@@ -1,0 +1,21 @@
+<script src="~/jqwidgets/jqxbuttons.js"></script>
+<script src="~/jqwidgets/jqxscrollbar.js"></script>
+<script src="~/jqwidgets/jqxtextarea.js"></script>
+
+
+@model IEnumerable<jQWidgets.AspNet.Core.Models.SalesEmployee>
+
+@{
+    ViewData["Title"] = "ASP .NET MVC TextArea Example";
+}
+<script>
+    function change(event) {
+        var args = event.args;
+        document.getElementById("log").innerHTML = "Label: " + args.label + ", Value: " + args.value;;
+    }
+</script>
+<label>Enter Name:</label>
+<jqx-text-area on-change="change()" display-member="Name" selected-index="0" value-member="ID" theme="@ViewData["Theme"]" width="250" height="100" source="Model"></jqx-text-area>
+(ex: An)
+<br /><br />
+<div id="log"></div>

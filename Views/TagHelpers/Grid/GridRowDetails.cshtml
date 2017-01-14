@@ -1,0 +1,81 @@
+<script src="~/jqwidgets/jqxbuttons.js"></script>
+<script src="~/jqwidgets/jqxscrollbar.js"></script>
+<script src="~/jqwidgets/jqxgrid.js"></script>
+<script src="~/jqwidgets/jqxgrid.edit.js"></script>
+<script src="~/jqwidgets/jqxgrid.columnsresize.js"></script>
+<script src="~/jqwidgets/jqxgrid.filter.js"></script>
+<script src="~/jqwidgets/jqxgrid.selection.js"></script>
+<script src="~/jqwidgets/jqxgrid.sort.js"></script>
+<script src="~/jqwidgets/jqxgrid.pager.js"></script>
+<script src="~/jqwidgets/jqxgrid.aggregates.js"></script>
+<script src="~/jqwidgets/jqxgrid.grouping.js"></script>
+<script src="~/jqwidgets/jqxdata.export.js"></script>
+<script src="~/jqwidgets/jqxgrid.export.js"></script>
+<script src="~/jqwidgets/jqxmenu.js"></script>
+<script src="~/jqwidgets/jqxlistbox.js"></script>
+<script src="~/jqwidgets/jqxdropdownlist.js"></script>
+<script src="~/jqwidgets/jqxmenu.js"></script>
+<script src="~/jqwidgets/jqxlistbox.js"></script>
+<script src="~/jqwidgets/jqxdropdownlist.js"></script>
+
+@model IEnumerable<jQWidgets.AspNet.Core.Models.SalesEmployee>
+@using jQWidgets.AspNetCore.Mvc.TagHelpers;
+@{
+    ViewData["Title"] = "ASP .NET MVC Grid Row Details Example";
+}
+@{
+    var employee = Model.FirstOrDefault();
+}
+<script>
+    var template = { rowDetails: "<div style=\"margin: 10px;\"></div>", rowDetailsHeight: 220, rowDetailsHidden: true };
+    var initRowDetails = function (index, parentElement, gridElement, record) {
+        var id = record.uid.toString();
+        var grid = $($(parentElement).children()[0]);
+
+        var data = [];
+
+        var generaterow = function (i) {
+            var row = {};      
+            row["OrderDate"] = new Date(2016, Math.floor(Math.random() * 11), Math.floor(Math.random() * 27))
+            row["Quantity"] = Math.floor(Math.random() * 50)
+            row["ProductName"] = record.ProductName;
+            return row;
+        }
+
+        for (var i = 0; i < Math.max(10, Math.floor(Math.random() * 20)) ; i++) {
+            var row = generaterow(i);
+            data[i] = row;
+        }
+
+        var source = {
+            datafields: [
+                { name: 'OrderDate', type: 'date' },
+                { name: 'Quantity', type: 'string' },
+                { name: 'ProductName', type: 'string' }
+            ],
+            localdata: data
+        }
+        var nestedGridAdapter = new $.jqx.dataAdapter(source);
+        if (grid != null) {
+            grid.jqxGrid({
+                source: nestedGridAdapter, width: 780, height: 200,
+                columns: [
+                  { text: 'Order Date', cellsFormat:'d', dataField: 'OrderDate', width: 200 },
+                  { text: 'Quantity', cellsAlign:'right', dataField: 'Quantity', width: 200 },
+                  { text: 'Product Name', dataField: 'ProductName' }
+                ]
+            });
+        }
+    }
+</script>
+
+<jqx-grid id="grid" alt-rows="true" row-details="true" row-details-template="{{template}}" init-row-details="initRowDetails()" source-id="ID" theme="@ViewData["Theme"]" sortable="true" width="850" source="Model">
+    <jqx-grid-columns>
+        <jqx-grid-column datafield-for="@(employee.FirstName)" width="150" text="First Name"></jqx-grid-column>
+        <jqx-grid-column datafield-for="@(employee.LastName)" width="150" text="Last Name"></jqx-grid-column>
+        <jqx-grid-column datafield-for="@(employee.ProductName)" width="200" text="Product Name"></jqx-grid-column>
+        <jqx-grid-column datafield-for="@(employee.Price)" width="100" text="Price" cells-format="c2" cells-align="HorizontalAlignment.Right"></jqx-grid-column>
+        <jqx-grid-column datafield-for="@(employee.Quantity)" width="100" text="Quantity" cells-align="HorizontalAlignment.Right"></jqx-grid-column>
+        <jqx-grid-column datafield-for="@(employee.Total)" text="Total" cells-format="c2" cells-align="HorizontalAlignment.Right"></jqx-grid-column>
+ </jqx-grid-columns>
+</jqx-grid>

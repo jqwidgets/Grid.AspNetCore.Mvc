@@ -1,0 +1,74 @@
+<script src="~/jqwidgets/jqxbuttons.js"></script>
+<script src="~/jqwidgets/jqxscrollbar.js"></script>
+<script src="~/jqwidgets/jqxpanel.js"></script>
+<script src="~/jqwidgets/jqxlistmenu.js"></script>
+
+@using jQWidgets.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "ASP .NET MVC ListMenu Example";
+}
+
+
+<jqx-list-menu theme="@ViewData["Theme"]" enable-scrolling="false" width="350">
+    <jqx-list-menu-items>
+      <jqx-list-menu-item>
+            OSI
+          <jqx-list-menu-items>
+              <jqx-list-menu-item>
+                  Application Layer
+                  <jqx-list-menu-items>
+                      <jqx-list-menu-item>SIP</jqx-list-menu-item>
+                      <jqx-list-menu-item>DNS</jqx-list-menu-item>
+                      <jqx-list-menu-item>FTP</jqx-list-menu-item>
+                      <jqx-list-menu-item>RTP</jqx-list-menu-item>
+                      <jqx-list-menu-item>DHCP</jqx-list-menu-item>
+                  </jqx-list-menu-items>
+              </jqx-list-menu-item>
+          </jqx-list-menu-items>         
+        </jqx-list-menu-item>
+        <jqx-list-menu-item>
+            TCP/IP
+            <jqx-list-menu-items>
+                <jqx-list-menu-item>
+                    Application layer
+                    <jqx-list-menu-items>
+                        <jqx-list-menu-item>DHCP</jqx-list-menu-item>
+                        <jqx-list-menu-item>DNS</jqx-list-menu-item>
+                        <jqx-list-menu-item>FTP</jqx-list-menu-item>
+                        <jqx-list-menu-item>HTTP</jqx-list-menu-item>
+                        <jqx-list-menu-item>IMAP</jqx-list-menu-item>
+                        <jqx-list-menu-item>LDAP</jqx-list-menu-item>
+                        <jqx-list-menu-item>XMPP</jqx-list-menu-item>
+                        <jqx-list-menu-item>SSH</jqx-list-menu-item>
+                        <jqx-list-menu-item>RIP</jqx-list-menu-item>
+                    </jqx-list-menu-items>
+                </jqx-list-menu-item>
+                <jqx-list-menu-item>
+                    Transport layer
+                    <jqx-list-menu-items>
+                        <jqx-list-menu-item>TCP</jqx-list-menu-item>
+                        <jqx-list-menu-item>UDP</jqx-list-menu-item>
+                        <jqx-list-menu-item>SCTP</jqx-list-menu-item>
+                    </jqx-list-menu-items>
+                </jqx-list-menu-item>
+                <jqx-list-menu-item>
+                    Internet layer
+                    <jqx-list-menu-items>
+                        <jqx-list-menu-item>IP</jqx-list-menu-item>
+                        <jqx-list-menu-item>ICMP</jqx-list-menu-item>
+                        <jqx-list-menu-item>ECN</jqx-list-menu-item>
+                    </jqx-list-menu-items>
+                </jqx-list-menu-item>
+                <jqx-list-menu-item>
+                    Link layer
+                    <jqx-list-menu-items>
+                        <jqx-list-menu-item>ARP</jqx-list-menu-item>
+                        <jqx-list-menu-item>NDP</jqx-list-menu-item>
+                        <jqx-list-menu-item>DSL</jqx-list-menu-item>
+                    </jqx-list-menu-items>
+                </jqx-list-menu-item>
+            </jqx-list-menu-items>
+        </jqx-list-menu-item>
+    </jqx-list-menu-items>
+</jqx-list-menu>

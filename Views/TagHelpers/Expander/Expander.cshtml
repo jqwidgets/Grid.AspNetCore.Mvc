@@ -1,0 +1,15 @@
+<script src="~/jqwidgets/jqxexpander.js"></script>
+<script src="~/jqwidgets/jqxbuttons.js"></script>
+
+@{
+    ViewData["Title"] = "ASP .NET MVC Expander Example";
+}
+
+<jqx-expander width="500" theme="@ViewData["Theme"]">
+    <jqx-expander-header>Header</jqx-expander-header>
+    <jqx-expander-body>
+       <jqx-button style="margin:5px;" theme="@ViewData["Theme"]">Button 1</jqx-button>
+       <jqx-button style="margin:5px;" theme="@ViewData["Theme"]">Button 2</jqx-button>
+       <jqx-button style="margin:5px;" theme="@ViewData["Theme"]">Button 3</jqx-button>
+   </jqx-expander-body>
+</jqx-expander>

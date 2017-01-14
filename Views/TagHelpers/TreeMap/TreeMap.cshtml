@@ -1,0 +1,12 @@
+<script src="~/jqwidgets/jqxtreemap.js"></script>
+
+@model IEnumerable<jQWidgets.AspNet.Core.Models.Employee>
+
+@{
+    ViewData["Title"] = "ASP .NET MVC TreeMap Example";
+}
+@{
+    var employee = Model.FirstOrDefault();
+}
+<jqx-tree-map display-member="FirstName" value-member="EmployeeID" theme="@ViewData["Theme"]" width="850" source="Model"></jqx-tree-map>
+

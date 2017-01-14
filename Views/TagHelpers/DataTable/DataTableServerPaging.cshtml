@@ -1,0 +1,25 @@
+<script src="~/jqwidgets/jqxbuttons.js"></script>
+<script src="~/jqwidgets/jqxscrollbar.js"></script>
+<script src="~/jqwidgets/jqxdatatable.js"></script>
+<script src="~/jqwidgets/jqxmenu.js"></script>
+<script src="~/jqwidgets/jqxlistbox.js"></script>
+<script src="~/jqwidgets/jqxdropdownlist.js"></script>
+@model IEnumerable<jQWidgets.AspNet.Core.Models.SalesEmployee>
+@using jQWidgets.AspNetCore.Mvc.TagHelpers;
+@{
+    ViewData["Title"] = "ASP .NET MVC DataTable Server Paging, Sorting and Filtering Example";
+}
+@{
+    var employee = Model.FirstOrDefault();
+}
+
+<jqx-data-table id="grid" server-processing="true" alt-rows="true" filterable="true" pageable="true" source-id-for="@(employee.ID)" theme="@ViewData["Theme"]" sortable="true" width="850" source-root="Employees" source-total-records="TotalRecords" source-url="@Url.Action("GetPageData","TagHelpers")" source-model="@employee">
+    <jqx-data-table-columns>
+        <jqx-data-table-column datafield-for="@(employee.FirstName)" width="150" text="First Name"></jqx-data-table-column>
+        <jqx-data-table-column datafield-for="@(employee.LastName)" width="150" text="Last Name"></jqx-data-table-column>
+        <jqx-data-table-column datafield-for="@(employee.ProductName)" width="250" text="Product Name"></jqx-data-table-column>
+        <jqx-data-table-column datafield-for="@(employee.Price)" width="100" text="Price" cells-format="c2" cells-align="HorizontalAlignment.Right"></jqx-data-table-column>
+        <jqx-data-table-column datafield-for="@(employee.Quantity)" width="100" text="Quantity" cells-align="HorizontalAlignment.Right"></jqx-data-table-column>
+        <jqx-data-table-column datafield-for="@(employee.Total)" width="100" text="Total" cells-format="c2" cells-align="HorizontalAlignment.Right"></jqx-data-table-column>
+ </jqx-data-table-columns>
+</jqx-data-table>

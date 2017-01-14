@@ -1,0 +1,91 @@
+<script src="~/jqwidgets/jqxbuttons.js"></script>
+<script src="~/jqwidgets/jqxscrollbar.js"></script>
+<script src="~/jqwidgets/jqxlistbox.js"></script>
+<script src="~/jqwidgets/jqxdropdownlist.js"></script>
+<script src="~/jqwidgets/jqxdatatable.js"></script>
+<script src="~/jqwidgets/jqxtreegrid.js"></script>
+
+@model IEnumerable<jQWidgets.AspNet.Core.Models.SalesEmployee>
+
+@{
+    ViewData["Title"] = "ASP .NET MVC TreeGrid Conditional Formatting Example";
+}
+@{
+    var employee = Model.FirstOrDefault();
+}
+<style>
+    .max {
+        color: black\9;
+        background-color: #63be7b\9;
+    }
+
+    .avg {
+        color: black\9;
+        background-color: #f8e984\9;
+    }
+
+    .minavg {
+        color: black\9;
+        background-color: #f9806f\9;
+    }
+
+    .min {
+        color: black\9;
+        background-color: #f8696b\9;
+    }
+
+    .max:not(.jqx-grid-cell-hover):not(.jqx-grid-cell-selected), .jqx-widget .max:not(.jqx-grid-cell-hover):not(.jqx-grid-cell-selected) {
+        color: black;
+        background-color: #63be7b;
+    }
+
+    .avg:not(.jqx-grid-cell-hover):not(.jqx-grid-cell-selected), .jqx-widget .avg:not(.jqx-grid-cell-hover):not(.jqx-grid-cell-selected) {
+        color: black;
+        background-color: #f8e984;
+    }
+
+    .minavg:not(.jqx-grid-cell-hover):not(.jqx-grid-cell-selected), .jqx-widget .minavg:not(.jqx-grid-cell-hover):not(.jqx-grid-cell-selected) {
+        color: black;
+        background-color: #f9806f;
+    }
+
+    .min:not(.jqx-grid-cell-hover):not(.jqx-grid-cell-selected), .jqx-widget .min:not(.jqx-grid-cell-hover):not(.jqx-grid-cell-selected) {
+        color: black;
+        background-color: #f8696b;
+    }
+</style>
+
+<script>
+    var treeGridInstance;
+    function getInstance(instance)
+    {
+        treeGridInstance = instance;
+    }
+    function treeGridReady()
+    {
+        treeGridInstance.expandRow(2);
+    }
+    function cellClass (row, dataField, cellText, rowData) {
+        var cellValue = rowData[dataField];
+        if (cellValue < 2) {
+            return "min";
+        }
+        if (cellValue < 4) {
+            return "minavg";
+        }
+        if (cellValue < 6) {
+            return "avg";
+        }
+        return "max";
+    }
+</script>
+<jqx-tree-grid key-datafield-for="@(employee.ID)" pageable="true" ready="treeGridReady()" sourceId-for="@(employee.ID)" instance="getInstance()" parent-datafield-for="@(employee.ReportsTo)" theme="@ViewData["Theme"]" sortable="true" width="850" source="Model"> 
+    <jqx-tree-grid-columns>
+        <jqx-tree-grid-column dataField-for="@(employee.FirstName)" width="100" text="First Name"></jqx-tree-grid-column>
+        <jqx-tree-grid-column dataField-for="@(employee.LastName)" width="100" text="Last Name"></jqx-tree-grid-column>
+        <jqx-tree-grid-column dataField-for="@(employee.ProductName)" width="150"></jqx-tree-grid-column>
+        <jqx-tree-grid-column dataField-for="@(employee.Quantity)" width="200"></jqx-tree-grid-column>
+        <jqx-tree-grid-column cell-class-name="cellClass()" dataField-for="@(employee.Price)"></jqx-tree-grid-column>
+    </jqx-tree-grid-columns>
+</jqx-tree-grid>
+
