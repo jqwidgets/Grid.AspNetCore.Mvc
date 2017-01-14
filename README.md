@@ -6,46 +6,45 @@ Grid tag helper represents a powerful Datagrid UI tag helper. It offers rich fun
 
 ## Highlights
 
-```Works across devices and browsers```
-```Web Standards Compliant```
-```Rich and easy to use JavaScript API```
-```Optimized for Performance```
-```Easy customization and built-in themes```
-```Localization```
+- Works across devices and browsers
+- Web Standards Compliant
+- Rich and easy to use JavaScript API
+- Optimized for Performance
+- Easy customization and built-in themes
+- Localization
+- 
 ## Features
 
-Data Binding
-Outlook-Style Grouping
-Sorting
-Filtering
-Paging
-Editing and Validation
-Nested Grids
-Row Details
-Localization
-Column Types
-Columns Resizing
-Columns Reorder
-Columns Hierarchy
-Pinned Columns
-Foreign Columns
-Cells Formatting
-Custom Cells Rendering
-Custom Cell Editors
-Rows and Cells Selection
-Aggregates
-Export to Excel, XML, HTML, CSV, TSV, PDF and JSON
-Printing
-Keyboard Navigation
-State Maitenance
-
-Tag Helper enables server-side code to participate in creating and rendering HTML elements in Razor files.
+- Data Binding
+- Outlook-Style Grouping
+- Sorting
+- Filtering
+- Paging
+- Editing and Validation
+- Nested Grids
+- Row Details
+- Localization
+- Column Types
+- Columns Resizing
+- Columns Reorder
+- Columns Hierarchy
+- Pinned Columns
+- Foreign Columns
+- Cells Formatting
+- Custom Cells Rendering
+- Custom Cell Editors
+- Rows and Cells Selection
+- Aggregates
+- Export to Excel, XML, HTML, CSV, TSV, PDF and JSON
+- Printing
+- Keyboard Navigation
+- State Maitenance
 
 ## Grid Demos
 
 [ASP .NET Core MVC Tag Helpers Demos page](http://www.jqwidgets.com/asp.net-core-mvc-tag-helpers/asp.net-core-mvc-grid-tag-helper/index.htm).
 
-## Setup
+## Setup and Installation
 
 ### 1. Create a new ASP .NET Core Web Application
 ![alt text](http://aspcore.jqwidgets.com/bootstrap/tag-helpers/images/aspnetcore-net-project.png "Tag Helpers 1")
@@ -54,7 +53,8 @@ Tag Helper enables server-side code to participate in creating and rendering HTM
 
 ### 2. Reference the Tag Helpers
 
-Install the Tag Helper's Nuget package from https://www.nuget.org/packages/jQWidgets.AspNetCore.Mvc.TagHelpers/1.0.0.
+Install the Tag Helper's Nuget package from https://www.nuget.org/packages/Grid.AspNetCore.Mvc/
+
 ### 3. Update _ViewImports.cshtml
 
 ```
@@ -117,3 +117,11 @@ While typing, IntelliSense suggest the existing Tag Helpers:
 
 
 ```
+
+## License
+
+Free for non-commercial purposes. For commercial usage, please visit http://www.jqwidgets.com/license/.
+
+## Any questions, comments or additions?
+
+If you have a feature request or bug report, leave an issue on the issues page or send a pull request. For general questions and comments, use the http://www.jqwidgets.com/community/forum/asp-net-mvc/ forum.
